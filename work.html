@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/x-icon" href="https://github.com/DPS-cyber/Adranin/releases/download/cv1/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Work Library — Reels, Photography &amp; Web Design | adranin</title>
+  <meta name="description"
+    content="Browse adranin's work library: reels, photography, web and brand design across every project we've shipped in Hyderabad and beyond.">
+  <link rel="canonical" href="https://adranin.pages.dev/work.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://adranin.pages.dev/work.html">
+  <meta property="og:title" content="Work Library — Reels, Photography &amp; Web Design | adranin">
+  <meta property="og:description" content="Browse adranin's work library: reels, photography, web and brand design across every project we've shipped.">
+  <meta property="og:image" content="https://github.com/DPS-cyber/Adranin/releases/download/cv1/logo-white.png">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Work Library — Reels, Photography &amp; Web Design | adranin">
+  <meta property="twitter:image" content="https://github.com/DPS-cyber/Adranin/releases/download/cv1/logo-white.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=JetBrains+Mono:wght@500;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* =========================================================
+       WORK FEED GRID & FEED ITEM REFINEMENTS
+       ========================================================= */
+    .feed-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px 24px;
+      margin-top: 48px;
+    }
+
+    @media (max-width: 1100px) {
+      .feed-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .feed-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .feed-item {
+      position: relative;
+      border-radius: var(--radius);
+      overflow: hidden;
+      aspect-ratio: 4 / 5;
+      background: var(--surface-2);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), border-color 0.5s var(--ease);
+      border: 1px solid var(--line);
+    }
+
+    .feed-item.hidden {
+      display: none;
+    }
+
+    .feed-item img,
+    .feed-item video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s var(--ease);
+    }
+
+    .feed-item:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 32px 64px rgba(0, 0, 0, 0.15);
+      border-color: var(--orange);
+    }
+
+    .feed-item:hover img,
+    .feed-item:hover video {
+      transform: scale(1.04);
+    }
+
+    /* Style the .peek overlay badge */
+    .feed-item .peek {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: rgba(10, 10, 10, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 8px 16px;
+      border-radius: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      z-index: 2;
+      pointer-events: none;
+      transition: background 0.3s var(--ease), border-color 0.3s var(--ease);
+    }
+
+    .feed-item:hover .peek {
+      background: var(--orange);
+      border-color: var(--orange);
+    }
+  </style>
+  <script src="js/theme-init.js"></script>
+</head>
+
+<body>
+
+  <!-- ============ NAV ============ -->
+  <global-header></global-header>
+
+  <main>
+    <!-- ============ PAGE HERO ============ -->
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="crumb"><a href="index.html">Home</a> / Work</div>
+        <div class="eyebrow">Work library</div>
+        <h1 class="h-xl">Every reel, frame<br>and <span class="stroke accent">build<svg viewBox="0 0 220 24"
+              preserveAspectRatio="none">
+              <path d="M2,14 C50,4 100,20 130,10 C160,2 190,16 218,8" stroke="#EA5C1F" stroke-width="6" fill="none"
+                stroke-linecap="round" />
+            </svg></span>, unsorted.</h1>
+        <p class="lede on-dark">The raw output — reels, photography, web and brand design. Looking for the story behind
+          a project instead? That's the <a href="case-studies.html"
+            style="color:var(--orange); text-decoration:underline;">case studies</a>.</p>
+      </div>
+    </section>
+
+    <!-- ============ LIBRARY ============ -->
+    <section class="block">
+      <div class="wrap">
+        <div class="lib-tools reveal">
+          <input type="text" id="workSearch" class="lib-search" placeholder="Search the library…">
+          <div class="filters">
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="reel">Reels</button>
+            <button class="filter" data-filter="photo">Photos</button>
+            <button class="filter" data-filter="web">Web</button>
+            <button class="filter" data-filter="brand">Brand</button>
+          </div>
+        </div>
+
+        <div class="feed-grid reveal" id="feedGrid">
+          <div class="feed-item" data-tags="reel content mastery"><video
+              src="https://github.com/DPS-cyber/Addit/releases/download/3.0/r1.mp4" preload="none" loop muted
+              playsinline></video><span class="peek">Reel</span></div>
+          <div class="feed-item" data-tags="photo brand mastery"><img src="https://raw.githubusercontent.com/DPS-cyber/Addit/main/ad1.jpg" loading="lazy" alt="Verve Fitness Content"><span
+              class="peek">Photo</span></div>
+          <div class="feed-item" data-tags="photo brand"><img src="https://raw.githubusercontent.com/DPS-cyber/Addit/main/ad2.jpg" loading="lazy" alt="Loom and Co Brand System"><span
+              class="peek">Photo</span></div>
+          <div class="feed-item" data-tags="reel conversion"><video
+              src="https://github.com/DPS-cyber/Addit/releases/download/3.0/r2.mp4" preload="none" loop muted
+              playsinline></video><span class="peek">Reel</span></div>
+          <div class="feed-item" data-tags="web conversion"><img src="https://raw.githubusercontent.com/DPS-cyber/Addit/main/ad3.jpg" loading="lazy" alt="Studio Noir Booking Optimization"><span
+              class="peek">Web</span></div>
+          <div class="feed-item" data-tags="reel content"><video
+              src="https://github.com/DPS-cyber/Addit/releases/download/3.0/r3.mp4" preload="none" loop muted
+              playsinline></video><span class="peek">Reel</span></div>
+          <div class="feed-item" data-tags="photo content"><img src="https://raw.githubusercontent.com/DPS-cyber/Addit/main/ad4.JPG" loading="lazy" alt="High Velocity Production Shoot"><span
+              class="peek">Photo</span></div>
+          <div class="feed-item" data-tags="photo brand"><img src="https://raw.githubusercontent.com/DPS-cyber/Addit/main/ad5.jpg" loading="lazy" alt="Kadence Coffee Asset Sprint"><span
+              class="peek">Photo</span></div>
+          <div class="feed-item" data-tags="reel mastery"><video
+              src="https://github.com/DPS-cyber/Addit/releases/download/3.0/r4.mp4" preload="none" loop muted
+              playsinline></video><span class="peek">Reel</span></div>
+          <div class="feed-item" data-tags="web brand"><img src="https://raw.githubusercontent.com/DPS-cyber/Addit/main/ad6.jpg" loading="lazy" alt="Dynamic UX Architecture"><span
+              class="peek">Web</span></div>
+          <div class="feed-item" data-tags="reel content"><video
+              src="https://github.com/DPS-cyber/Addit/releases/download/3.0/Song.mp4" preload="none" loop muted
+              playsinline></video><span class="peek">Reel</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA BAND ============ -->
+    <section class="block ink">
+      <div class="wrap" style="text-align:center;">
+        <div class="eyebrow" style="justify-content:center;">Want the full story?</div>
+        <h2 class="h-lg">See how these <span class="accent">turned into results</span>.</h2>
+        <a href="case-studies.html" class="btn btn-solid" style="margin-top:30px;">Read the case studies <i
+            class="fa-solid fa-arrow-right"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ SERVERLESS COMPONENT OVERLAYS ============ -->
+  <global-contact></global-contact>
+  <global-lightbox></global-lightbox>
+
+  <!-- ============ SERVERLESS COMPONENT FOOTER ============ -->
+  <global-footer></global-footer>
+  <script src="js/form.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/components.js"></script>
+</body>
+
+</html>
